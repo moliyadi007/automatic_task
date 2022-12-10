@@ -1,13 +1,11 @@
-$notification.post('脚本启动','','')
 const cookieName = '淘小说'
 const tokenKey = 'kxsKey'
 const uidKey = 'uidKey'
 
 const moliyadi = init()
-moliyadi.log('运行到这里')
-moliyadi.msg(cookieName, `获取刷新链接: 成功`, '')
 if ($request && $request.method != 'POST' && $request.url.indexOf('itaoxiaoshuo.com/regIds') >= 0) {
   const body = $request.body.loadJSON()
+  console.log(body)
   //const tokenheaderVal = JSON.stringify($request.headers)
   //if (tokenurlVal) moliyadi.setdata(tokenurlVal, tokenurlKey)
   //if (tokenheaderVal) moliyadi.setdata(tokenheaderVal, tokenheaderKey)
