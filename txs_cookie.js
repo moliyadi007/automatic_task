@@ -3,17 +3,18 @@ const tokenKey = 'kxsKey'
 const uidKey = 'uidKey'
 
 const moliyadi = init()
-console.log(`request:`,$request)
-console.log(`body:`,$request.body)
-console.log(`method:`,$request.method)
-console.log(`url:`,$request.url)
+//console.log(`request:`,$request)
+//console.log(`body:`,$request.body)
+//console.log(`method:`,$request.method)
+//console.log(`url:`,$request.url)
+console.log($request,$request.body,$request.method,$request.url)
 if ($request && $request.method == 'POST' && $request.url.indexOf('itaoxiaoshuo.com/regIds') >= 0) {
   //const body = $request.body.loadJSON()
   //console.log(body)
   //const tokenheaderVal = JSON.stringify($request.headers)
   //if (tokenurlVal) moliyadi.setdata(tokenurlVal, tokenurlKey)
   //if (tokenheaderVal) moliyadi.setdata(tokenheaderVal, tokenheaderKey)
-  moliyadi.msg(cookieName, `获取刷新链接: 成功`, body)
+  moliyadi.msg(cookieName, `获取刷新链接: 成功`, '')
 }
 else{moliyadi.msg(cookieName, `获取失败`, '')}
 
