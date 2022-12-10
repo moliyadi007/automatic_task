@@ -3,11 +3,11 @@ const tokenKey = 'kxsKey'
 const uidKey = 'uidKey'
 
 const moliyadi = init()
-//console.log(`request:`,$request)
-//console.log(`body:`,$request.body)
-//console.log(`method:`,$request.method)
-//console.log(`url:`,$request.url)
-console.log($request,$request.body,$request.method,$request.url)
+console.log($request)
+console.log($request.body)
+console.log($request.method)
+console.log($request.url)
+//console.log($request,$request.body,$request.method,$request.url)
 if ($request && $request.method == 'POST' && $request.url.indexOf('itaoxiaoshuo.com/regIds') >= 0) {
   //const body = $request.body.loadJSON()
   //console.log(body)
