@@ -10,7 +10,7 @@ if ($request && $request.method == 'POST' && $request.url.indexOf('itaoxiaoshuo.
   let token = $request.body.match(/token=(.+?&)/)[1]
   let uid = $request.body.match(/uid=(.+?&)/)[1]
   let txsValue = token+uid
-  if (token && uid) moliyadi.setdata('txsKey',txsValue)
+  if (token && uid) moliyadi.setdata(txsValue,'txsKey')
   moliyadi.msg(cookieName, `获取cookie成功`, '')
 }
 else{moliyadi.msg(cookieName, `cookie获取失败`, '')}
@@ -26,9 +26,9 @@ function init() {
     if (isSurge()) return $persistentStore.read(key)
     if (isQuanX()) return $prefs.valueForKey(key)
   }
-  setdata = (key, val) => {
-    if (isSurge()) return $persistentStore.write(key, val)
-    if (isQuanX()) return $prefs.setValueForKey(key, val)
+  setdata = (val,key) => {
+    if (isSurge()) return $persistentStore.write(val,,key)
+    if (isQuanX()) return $prefs.setValueForKey(val,key)
   }
   msg = (title, subtitle, body) => {
     if (isSurge()) $notification.post(title, subtitle, body)
