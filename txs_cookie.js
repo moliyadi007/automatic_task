@@ -11,6 +11,7 @@ if ($request && $request.method != 'POST' && $request.url.indexOf('itaoxiaoshuo.
   //if (tokenheaderVal) moliyadi.setdata(tokenheaderVal, tokenheaderKey)
   moliyadi.msg(cookieName, `获取刷新链接: 成功`, body)
 }
+else{moliyadi.msg(cookieName, `获取失败`, '')}
 
 function init() {
   isSurge = () => {
