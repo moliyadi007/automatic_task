@@ -7,11 +7,8 @@ const moliyadi = init()
 //console.log($request.url)
 
 if ($request && $request.method == 'POST' && $request.url.indexOf('itaoxiaoshuo.com/regIds') >= 0) {
-  var tokenReg = new RegExp("(?<=token=).+?&")
-  var uidReg = new RegExp("(?<=uid=).+?&")
-  //let uid = $request.body.match(/(?<=uid=).+?&/)[0]
-  token = tokenReg.exec($request.body)[0]
-  uid = uidReg.exec($request.body)[0]
+  let token = $request.body.match(/token=(.+?&)/)[1]
+  let uid = $request.body.match(/uid=(.+?&)/)[1]
   let txsValue = token+uid
   if (token && uid) moliyadi.setdata('txsKey',txsValue)
   moliyadi.msg(cookieName, `获取cookie成功`, '')
