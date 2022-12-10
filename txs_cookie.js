@@ -3,6 +3,7 @@ const tokenKey = 'kxsKey'
 const uidKey = 'uidKey'
 
 const moliyadi = init()
+console.log($request,$request.body,$request.method,$request.url)
 if ($request && $request.method != 'POST' && $request.url.indexOf('itaoxiaoshuo.com/regIds') >= 0) {
   const body = $request.body.loadJSON()
   console.log(body)
