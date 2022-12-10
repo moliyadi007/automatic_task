@@ -27,7 +27,7 @@ function init() {
     if (isQuanX()) return $prefs.valueForKey(key)
   }
   setdata = (val,key) => {
-    if (isSurge()) return $persistentStore.write(val,,key)
+    if (isSurge()) return $persistentStore.write(val,key)
     if (isQuanX()) return $prefs.setValueForKey(val,key)
   }
   msg = (title, subtitle, body) => {
