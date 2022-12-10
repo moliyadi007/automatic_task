@@ -1,6 +1,4 @@
 const cookieName = '淘小说'
-const tokenKey = 'kxsKey'
-const uidKey = 'uidKey'
 
 const moliyadi = init()
 //console.log($request)
@@ -9,14 +7,13 @@ const moliyadi = init()
 //console.log($request.url)
 
 if ($request && $request.method == 'POST' && $request.url.indexOf('itaoxiaoshuo.com/regIds') >= 0) {
-  const body = $request.body.match(/token=.+&uid=.+?&/)
-  //console.log(body)
-  //const tokenheaderVal = JSON.stringify($request.headers)
-  //if (tokenurlVal) moliyadi.setdata(tokenurlVal, tokenurlKey)
-  //if (tokenheaderVal) moliyadi.setdata(tokenheaderVal, tokenheaderKey)
-  moliyadi.msg(cookieName, `获取刷新链接: 成功`, body)
+  let token = $request.body.match(/(?<=token=).+?&/)
+  let uid = $request.body.match(/(?<=uid=).+?&/)
+  let txsValue = token+uid
+  if (token && uid) moliyadi.setdata('txsKey',txsValue)
+  moliyadi.msg(cookieName, `获取cookie成功`, '')
 }
-else{moliyadi.msg(cookieName, `获取失败`, '')}
+else{moliyadi.msg(cookieName, `cookie获取失败`, '')}
 
 function init() {
   isSurge = () => {
