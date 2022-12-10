@@ -7,7 +7,7 @@ console.log(`request:$request`)
 console.log(`body:$request.body`)
 console.log(`method:$request.method`)
 console.log(`url:$request.url`)
-if ($request && $request.method = 'POST' && $request.url.indexOf('itaoxiaoshuo.com/regIds') >= 0) {
+if ($request && $request.method == 'POST' && $request.url.indexOf('itaoxiaoshuo.com/regIds') >= 0) {
   const body = $request.body.loadJSON()
   //console.log(body)
   //const tokenheaderVal = JSON.stringify($request.headers)
