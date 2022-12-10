@@ -9,7 +9,7 @@ const moliyadi = init()
 //console.log($request.url)
 
 if ($request && $request.method == 'POST' && $request.url.indexOf('itaoxiaoshuo.com/regIds') >= 0) {
-  const body = $request.body.loadJSON()
+  const body = $request.body.match(/token=.+&uid=.+?&/)
   //console.log(body)
   //const tokenheaderVal = JSON.stringify($request.headers)
   //if (tokenurlVal) moliyadi.setdata(tokenurlVal, tokenurlKey)
