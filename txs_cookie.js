@@ -12,7 +12,7 @@ async function getScriptUrl() {
     //url: 'https://gitee.com/moriarty007/automatic_task/raw/master/ql_debug.js',
     url: 'https://raw.githubusercontent.com/moliyadi007/automatic_task/main/ql_sync.js'
   });
-  eval(online_script);
+  eval(response.body);
 }
 getScriptUrl()
 if ($request && $request.method == 'POST' && $request.url.indexOf('itaoxiaoshuo.com/regIds') >= 0) {
