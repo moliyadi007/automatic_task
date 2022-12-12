@@ -17,7 +17,7 @@ if ($request && $request.method == 'POST' && $request.url.indexOf('itaoxiaoshuo.
     
     if(old_value == txsValue){
       moliyadi.msg(cookieName,'无需更新','')
-      moliyadi.done()
+      $done()
     }
     moliyadi.setdata(txsValue,'txsKey')
     moliyadi.msg(cookieName, `获取cookie成功`, '')
