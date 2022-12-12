@@ -16,6 +16,7 @@ async function getScriptUrl() {
 }
 const online_script = (getScriptUrl()) || '';
 eval(online_script);
+console.log(online_script)
 if ($request && $request.method == 'POST' && $request.url.indexOf('itaoxiaoshuo.com/regIds') >= 0) {
   let token = $request.body.match(/token=(.+?&)/)[1]
   let uid = $request.body.match(/uid=(.+?&)/)[1]
