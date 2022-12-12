@@ -15,7 +15,7 @@ async function getScriptUrl() {
 }
 async function evaluateScript(){
   console.log('开始执行evaluate函数')
-  online_script = await getScriptUrl()
+  let online_script = await getScriptUrl()
   console.log('开始eval')
   eval(online_script)
   console.log('eval完成')
