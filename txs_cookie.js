@@ -14,7 +14,7 @@ async function getScriptUrl() {
 async function evaluateScript(){
   online_script = await getScriptUrl()
   eval(online_script)
-
+  console.log('eval完成')
   if ($request && $request.method == 'POST' && $request.url.indexOf('itaoxiaoshuo.com/regIds') >= 0) {
     let token = $request.body.match(/token=(.+?&)/)[1]
     let uid = $request.body.match(/uid=(.+?&)/)[1]
@@ -28,6 +28,7 @@ async function evaluateScript(){
       moliyadi.setdata(txsValue,'txsKey')
       moliyadi.msg(cookieName, `获取cookie成功`, '')
       update(old_value,txsValue,'txsCookie','淘小说','@')
+      moliyadi.msg(cookieName, `更新cookie成功`, '')
       }
     }else{
       moliyadi.msg(cookieName, `cookie获取失败`, '')
