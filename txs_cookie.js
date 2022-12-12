@@ -1,5 +1,5 @@
 
-require("./ql_sync")
+import "./ql_sync"
 const cookieName = '淘小说'
 
 const moliyadi = init()
