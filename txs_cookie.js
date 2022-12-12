@@ -6,10 +6,10 @@ const moliyadi = init()
 evaluateScript()
 async function getScriptUrl() {
   console.log('开始执行getscript函数')
-  const response = await $httpClient.get({
+  const response = await $httpClient.get(
     //url: 'https://gitee.com/moriarty007/automatic_task/raw/master/ql_debug.js',
-    url:'https://raw.githubusercontent.com/moliyadi007/automatic_task/main/ql_sync.js',
-  });
+   'https://raw.githubusercontent.com/moliyadi007/automatic_task/main/ql_sync.js',
+  );
   console.log(response.body)
   return response.body
 }
