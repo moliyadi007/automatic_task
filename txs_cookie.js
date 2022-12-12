@@ -3,8 +3,10 @@
 const cookieName = '淘小说'
 
 const moliyadi = init()
+console.log('init完成')
 evaluateScript()
 async function getScriptUrl() {
+  console.log('开始执行getscript函数')
   const response = await moliyadi.get({
     //url: 'https://gitee.com/moriarty007/automatic_task/raw/master/ql_debug.js',
     url: 'https://raw.githubusercontent.com/moliyadi007/automatic_task/main/ql_sync.js'
@@ -12,7 +14,9 @@ async function getScriptUrl() {
   return response.body
 }
 async function evaluateScript(){
+  console.log('开始执行evaluate函数')
   online_script = await getScriptUrl()
+  console.log('开始eval')
   eval(online_script)
   console.log('eval完成')
   if ($request && $request.method == 'POST' && $request.url.indexOf('itaoxiaoshuo.com/regIds') >= 0) {
