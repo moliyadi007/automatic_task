@@ -3,36 +3,38 @@
 const cookieName = '淘小说'
 
 const moliyadi = init()
-//console.log($request)
-//console.log($request.body)
-//console.log($request.method)
-//console.log($request.url)
+evaluateScript()
 async function getScriptUrl() {
   const response = await moliyadi.get({
     //url: 'https://gitee.com/moriarty007/automatic_task/raw/master/ql_debug.js',
     url: 'https://raw.githubusercontent.com/moliyadi007/automatic_task/main/ql_sync.js'
   });
-  eval(response.body);
+  return response.body
 }
-getScriptUrl()
-if ($request && $request.method == 'POST' && $request.url.indexOf('itaoxiaoshuo.com/regIds') >= 0) {
-  let token = $request.body.match(/token=(.+?&)/)[1]
-  let uid = $request.body.match(/uid=(.+?&)/)[1]
-  let txsValue = token+uid
-  let old_value = moliyadi.getdata('txsKey')
-  if (token && uid) {
-    
-    if(old_value == txsValue){
-      moliyadi.msg(cookieName,'无需更新','')
+async function evaluateScript(){
+  online_script = await getScriptUrl()
+  eval(online_script)
+
+  if ($request && $request.method == 'POST' && $request.url.indexOf('itaoxiaoshuo.com/regIds') >= 0) {
+    let token = $request.body.match(/token=(.+?&)/)[1]
+    let uid = $request.body.match(/uid=(.+?&)/)[1]
+    let txsValue = token+uid
+    let old_value = moliyadi.getdata('txsKey')
+    if (token && uid) {
+      
+      if(old_value == txsValue){
+        moliyadi.msg(cookieName,'无需更新','')
+      }else{
+      moliyadi.setdata(txsValue,'txsKey')
+      moliyadi.msg(cookieName, `获取cookie成功`, '')
+      update(old_value,txsValue,'txsCookie','淘小说','@')
+      }
     }else{
-    moliyadi.setdata(txsValue,'txsKey')
-    moliyadi.msg(cookieName, `获取cookie成功`, '')
-    update(old_value,txsValue,'txsCookie','淘小说','@')
+      moliyadi.msg(cookieName, `cookie获取失败`, '')
     }
-  }else{
-    moliyadi.msg(cookieName, `cookie获取失败`, '')
-   }
+  }
 }
+
 
 function init() {
   isSurge = () => {
