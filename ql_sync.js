@@ -41,11 +41,7 @@ async function update(value_old,value_new,name,remarks,separate){
   value_cloud = value_cloud.replace(reg,value_new)
   console.log(value_cloud)
   $.ql.edit({value:value_cloud,_id:_id})
- 
-  
-  
   }
-  $.done();
 }
 
 
