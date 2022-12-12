@@ -3,9 +3,9 @@
 40 * * * https://raw.githubusercontent.com/dompling/Script/master/jd/ql_cookie_sync.js
  */
 //value_old,value_new
-let name = "xxoo"
+
 const $ = new API('ql', true);
-update('','',name,'')
+
 
 const title = '🐉 通知提示';
 
