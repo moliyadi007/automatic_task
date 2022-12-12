@@ -1,4 +1,3 @@
-
 import ("./ql_sync")
 const cookieName = '淘小说'
 
@@ -17,12 +16,11 @@ if ($request && $request.method == 'POST' && $request.url.indexOf('itaoxiaoshuo.
     
     if(old_value == txsValue){
       moliyadi.msg(cookieName,'无需更新','')
-      $done()
-    }
+    }else{
     moliyadi.setdata(txsValue,'txsKey')
     moliyadi.msg(cookieName, `获取cookie成功`, '')
     update(old_value,txsValue,'txsCookie','淘小说','@')
-    
+    }
   }else{
     moliyadi.msg(cookieName, `cookie获取失败`, '')
    }
