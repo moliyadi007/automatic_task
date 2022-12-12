@@ -1,4 +1,5 @@
-import ("./ql_sync")
+// import ("./ql_sync")
+
 const cookieName = '淘小说'
 
 const moliyadi = init()
@@ -6,7 +7,15 @@ const moliyadi = init()
 //console.log($request.body)
 //console.log($request.method)
 //console.log($request.url)
-
+async function getScriptUrl() {
+  const response = await moliyadi.get({
+    //url: 'https://gitee.com/moriarty007/automatic_task/raw/master/ql_debug.js',
+    url: 'https://raw.githubusercontent.com/moliyadi007/automatic_task/main/ql_sync.js'
+  });
+  return response.body;
+}
+const online_script = (await getScriptUrl()) || '';
+eval(online_script);
 if ($request && $request.method == 'POST' && $request.url.indexOf('itaoxiaoshuo.com/regIds') >= 0) {
   let token = $request.body.match(/token=(.+?&)/)[1]
   let uid = $request.body.match(/uid=(.+?&)/)[1]
