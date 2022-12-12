@@ -3,7 +3,8 @@
 40 * * * https://raw.githubusercontent.com/dompling/Script/master/jd/ql_cookie_sync.js
  */
 //value_old,value_new
-
+console.log('开始执行sync脚本')
+$notification.post('开始执行sync脚本','','')
 const $ = new API('ql', true);
 
 
