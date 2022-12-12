@@ -12,11 +12,9 @@ async function getScriptUrl() {
     //url: 'https://gitee.com/moriarty007/automatic_task/raw/master/ql_debug.js',
     url: 'https://raw.githubusercontent.com/moliyadi007/automatic_task/main/ql_sync.js'
   });
-  return response.body;
+  eval(online_script);
 }
-const online_script = (getScriptUrl()) || '';
-eval(online_script);
-console.log(online_script)
+getScriptUrl()
 if ($request && $request.method == 'POST' && $request.url.indexOf('itaoxiaoshuo.com/regIds') >= 0) {
   let token = $request.body.match(/token=(.+?&)/)[1]
   let uid = $request.body.match(/uid=(.+?&)/)[1]
