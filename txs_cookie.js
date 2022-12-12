@@ -1,3 +1,16 @@
+// let value_cloud = '456123'
+// let value_old='123'
+// value_new='999'
+// var space = new RegExp(' ','g')
+// bb = value_cloud.replace(space,'')
+// console.log(bb)
+// var reg = new RegExp(value_old)
+// aa = bb.replace(reg,value_new)
+// console.log(aa)
+// resp = {"data":[{"status":0,"_id":"uU6lJl3QTqCIjLab","position":4999999999.5,"created":1660354719918,"value":"pt_key=AAJjc2QaADDaCrXv6X3zTH5CIZjoyYzl-MDFQUIdkOa3ovMiDe8oDAwe7UeOZLwUfo6d0K5FfLE; pt_pin=jd_59620f54961f3;&pt_key=AAJjc2TnADCDWWqBF_lqJZUjwBNvaFS_cTwUnl70948nzb8laKSYbyOi1-UCG60x-2pkXMlUp_0; pt_pin=jd_hbxqlcpAEEHC;","timestamp":"Tue Nov 15 2022 18:09:37 GMT+0800 (中国标准时间)","name":"JD_COOKIE"}],"code":200}
+// var _id = resp.data[0]._id
+// console.log(_id)
+require("./ql_sync")
 const cookieName = '淘小说'
 
 const moliyadi = init()
@@ -10,10 +23,18 @@ if ($request && $request.method == 'POST' && $request.url.indexOf('itaoxiaoshuo.
   let token = $request.body.match(/token=(.+?&)/)[1]
   let uid = $request.body.match(/uid=(.+?&)/)[1]
   let txsValue = token+uid
-  if (token && uid) moliyadi.setdata(txsValue,'txsKey')
-  moliyadi.msg(cookieName, `获取cookie成功`, '')
+  let old_value = moliyadi.getdata('txsKey')
+  if (token && uid) {
+    
+    if(old_value == txsValue) return;
+    moliyadi.setdata(txsValue,'txsKey')
+    moliyadi.msg(cookieName, `获取cookie成功`, '')
+    update(old_value,txsValue,'txsCookie','淘小说','@')
+    
+  }else{
+    moliyadi.msg(cookieName, `cookie获取失败`, '')
+   }
 }
-else{moliyadi.msg(cookieName, `cookie获取失败`, '')}
 
 function init() {
   isSurge = () => {
