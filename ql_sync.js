@@ -14,7 +14,7 @@ const $ = new API('ql', true);
 async function getScriptUrl() {
   const response = await $.http.get({
     //url: 'https://gitee.com/moriarty007/automatic_task/raw/master/ql_debug.js',
-    url: 'https://gitee.com/moriarty007/automatic_task/raw/master/ql_login.js',
+    url: 'https://raw.githubusercontent.com/moliyadi007/automatic_task/main/ql_login.js',
   });
   return response.body;
 }
