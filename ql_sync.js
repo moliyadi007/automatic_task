@@ -4,11 +4,8 @@
  */
 //value_old,value_new
 
-$notification.post('开始执行sync脚本','','')
+console.log('开始执行sync脚本','','')
 const $ = new API('ql', true);
-
-
-const title = '🐉 通知提示';
 
 //获取到新的cookie后跟本地的做比较
 //先在本地做更新
