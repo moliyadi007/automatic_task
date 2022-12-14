@@ -21,11 +21,8 @@ async function getScriptUrl() {
 
 update = async function(value_old,value_new,name,remarks,separate){
   console.log('开始执行update方法')
-  console.log('开始执行update方法')
   const ql_script = (await getScriptUrl()) || '';
-  console.log(ql_script)
   eval(ql_script);
-  console.log('第二次eval完成')
   await $.ql.login();
   let resp = await $.ql.select(name)
   console.log(resp)
@@ -36,7 +33,7 @@ update = async function(value_old,value_new,name,remarks,separate){
   }else{
   let value_cloud = resp.data[0].value
   var _id = resp.data[0]._id
-  //console.log(value_cloud)
+  console.log(_id)
   var space = new RegExp(' ','g')//去除空格
   value_cloud = value_cloud.replace(space,'')
   var reg = new RegExp(value_old)//去掉旧的,替换为新的
