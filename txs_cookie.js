@@ -4,23 +4,16 @@ const cookieName = '淘小说'
 
 const moliyadi = init()
 evaluateScript()
-
-async function getScriptUrl() {
-  console.log('开始执行getscript函数')
+async function evaluateScript(){
+  
   await $httpClient.get(
    'https://raw.githubusercontent.com/moliyadi007/automatic_task/main/ql_sync.js',
     (err,res,data)=>{
       eval(data)
-      $done()
-    }
-  )
-}
-async function evaluateScript(){
-  
-  await getScriptUrl()
+    });
   
   console.log('eval完成')
-  update()
+  
   if ($request && $request.method == 'POST' && $request.url.indexOf('itaoxiaoshuo.com/regIds') >= 0) {
     let token = $request.body.match(/token=(.+?&)/)[1]
     let uid = $request.body.match(/uid=(.+?&)/)[1]
