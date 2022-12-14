@@ -3,7 +3,7 @@
 40 * * * https://raw.githubusercontent.com/dompling/Script/master/jd/ql_cookie_sync.js
  */
 //value_old,value_new
-console.log('开始执行sync脚本')
+
 $notification.post('开始执行sync脚本','','')
 const $ = new API('ql', true);
 
@@ -23,6 +23,7 @@ async function getScriptUrl() {
 }
 
 async function update(value_old,value_new,name,remarks,separate){
+  console.log('开始执行update方法')
   const ql_script = (await getScriptUrl()) || '';
   eval(ql_script);
   await $.ql.login();
