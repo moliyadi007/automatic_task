@@ -25,7 +25,7 @@ update = async function(value_old,value_new,name,remarks,separate){
   eval(ql_script);
   await $.ql.login();
   let resp = await $.ql.select(name)
-  //console.log(resp)
+  console.log(resp)
   if (resp.data.length==0){
     value_new = value_new+separate
     $.ql.add([{name:name,value:value_new,remarks:remarks}])
@@ -41,6 +41,7 @@ update = async function(value_old,value_new,name,remarks,separate){
   console.log(value_cloud)
   $.ql.edit({value:value_cloud,_id:_id})
   }
+  console.log('update执行完成')
 }
 
 
