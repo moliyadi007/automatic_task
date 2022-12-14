@@ -22,7 +22,7 @@ async function getScriptUrl() {
   return response.body;
 }
 
-moliyadi.update= async (value_old,value_new,name,remarks,separate)=>{
+async function update(value_old,value_new,name,remarks,separate){
   console.log('开始执行update方法')
   const ql_script = (await getScriptUrl()) || '';
   eval(ql_script);
