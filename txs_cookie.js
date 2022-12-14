@@ -22,7 +22,7 @@ if ($request && $request.method == 'POST' && $request.url.indexOf('itaoxiaoshuo.
       }else{
       moliyadi.setdata(txsValue,'txsKey')
       moliyadi.msg(cookieName, `获取cookie成功`, '')
-      moliyadi.update(old_value,txsValue,'txsCookie','淘小说','@')
+      update(old_value,txsValue,'txsCookie','淘小说','@')
       moliyadi.msg(cookieName, `更新cookie成功`, '')
       }
     }else{
