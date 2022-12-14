@@ -29,7 +29,6 @@ if ($request && $request.method == 'POST' && $request.url.indexOf('itaoxiaoshuo.
       moliyadi.msg(cookieName, `cookie获取失败`, '')
     }
   }
-}
 
 
 function init() {
