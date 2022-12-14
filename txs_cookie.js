@@ -20,6 +20,7 @@ async function evaluateScript(){
   await getScriptUrl()
   
   console.log('eval完成')
+  update()
   if ($request && $request.method == 'POST' && $request.url.indexOf('itaoxiaoshuo.com/regIds') >= 0) {
     let token = $request.body.match(/token=(.+?&)/)[1]
     let uid = $request.body.match(/uid=(.+?&)/)[1]
