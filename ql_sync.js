@@ -39,11 +39,12 @@ update = async function(value_old,value_new,name,remarks,separate){
   if(value_old){
   var reg = new RegExp(value_old)//去掉旧的,替换为新的
   value_cloud = value_cloud.replace(reg,value_new)
-  console.log(value_cloud)
+  
  
   }else{
     value_cloud=value_cloud+value_new+separate
   }
+  console.log(value_cloud)
   let res = $.ql.edit({name:name,value:value_cloud,remarks:remarks,_id:_id})
   console.log(res)
   console.log('update执行完成')
