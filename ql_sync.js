@@ -29,22 +29,26 @@ update = async function(value_old,value_new,name,remarks,separate){
   if (resp.data.length==0){
     value_new = value_new+separate
     $.ql.add([{name:name,value:value_new,remarks:remarks}])
-    
+    return
   }else{
   let value_cloud = resp.data[0].value
   var _id = resp.data[0]._id
   console.log(_id)
   var space = new RegExp(' ','g')//去除空格
   value_cloud = value_cloud.replace(space,'')
+  if(value_old){
   var reg = new RegExp(value_old)//去掉旧的,替换为新的
   value_cloud = value_cloud.replace(reg,value_new)
   console.log(value_cloud)
+ 
+  }else{
+    value_cloud=value_cloud+value_new+separate
+  }
   let res = $.ql.edit({name:name,value:value_cloud,remarks:remarks,_id:_id})
   console.log(res)
-  }
   console.log('update执行完成')
+  }
 }
-
 
 function getURL(api, key = 'api') {
   return `${baseURL}/${key}/${api}`;
