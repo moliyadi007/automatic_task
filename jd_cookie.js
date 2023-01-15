@@ -19,6 +19,7 @@ function get_cookie(){
         
         if(old_value == new_Value){
           moliyadi.msg(cookieName,'无需更新','')
+          return
         }else{
         moliyadi.setdata(new_Value,name)
         moliyadi.msg(cookieName, `获取cookie成功`, '')
