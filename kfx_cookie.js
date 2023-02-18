@@ -7,7 +7,7 @@ const moliyadi = init()
 if ($request && $request.method == 'GET' && $request.url.indexOf('fscrm.kraftheinz.net.cn/crm/public/index.php/api/v1/getUserInfo') >= 0) {
     let token = $request.headers.token
     let old_value = moliyadi.getdata('kfxtoken')
-    if (token && uid) {
+    if (token) {
       
       if(old_value == token){
         moliyadi.msg(cookieName,'无需更新','')
