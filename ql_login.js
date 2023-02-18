@@ -124,6 +124,7 @@ if ($.ql_config.is_pwd === 'true') {
       };
       let response = await $.http.get(options);
       response = JSON.parse(response.body);
+      $.log(response)
       if (response.code === 200) {
         $.ql.type = 'open';
         $.ql.headers.Authorization = `Bearer ${response.data.token}`;
