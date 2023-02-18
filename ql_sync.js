@@ -21,6 +21,7 @@ async function getScriptUrl() {
 
 update = async function(value_old,value_new,name,remarks,separate){
   console.log('开始执行update方法')
+  console.log(value_old)
   const ql_script = (await getScriptUrl()) || '';
   eval(ql_script);
   await $.ql.login();
