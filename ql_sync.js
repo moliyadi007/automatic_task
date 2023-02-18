@@ -39,9 +39,11 @@ update = async function(value_old,value_new,name,remarks,separate){
   var space = new RegExp(' ','g')//去除空格
   value_cloud = value_cloud.replace(space,'')
   if(value_old){
-  var reg = new RegExp(value_old+separate)//去掉旧的,用空字符替换，然后添加新的，这样做可以避免本地值不存在云端导致不替换成新的
-  value_cloud = value_cloud.replace(reg,'')
-  value_cloud = value_cloud + separate + value_new
+  //var reg = new RegExp(value_old+separate)//去掉旧的,用空字符替换，然后添加新的，这样做可以避免本地值不存在云端导致不替换成新的
+  //value_cloud = value_cloud.replace(reg,'')
+  //value_cloud = value_cloud + separate + value_new
+  var reg = new RegExp(value_old)
+  value_cloud = value_cloud.replace(reg,value_new)
   
  
   }else{
