@@ -25,6 +25,7 @@ update = async function(value_old,value_new,name,remarks,separate){
   const ql_script = (await getScriptUrl()) || '';
   eval(ql_script);
   await $.ql.login();
+  console.log('青龙登录成功')
   let resp = await $.ql.select(name)
   console.log(resp)
   if (resp.data.length==0){
