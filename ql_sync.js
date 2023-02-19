@@ -50,6 +50,7 @@ update = async function(value_new,name,remarks,separate){
   let res = $.ql.edit({name:name,value:value_cloud,remarks:remarks,_id:_id})
   console.log(res)
   console.log('update执行完成')
+  moliyadi.msg(cookieName, `更新cookie成功`, '')
   }
 }
 
