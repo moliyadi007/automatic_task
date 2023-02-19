@@ -6,26 +6,26 @@ const moliyadi = init()
 
 if ($request && $request.method == 'GET' && $request.url.indexOf('fscrm.kraftheinz.net.cn/crm/public/index.php/api/v1/getUserInfo') >= 0) {
     let token = $request.headers.token
-    let old_value = moliyadi.getdata('kfxtoken')
+    //let old_value = moliyadi.getdata('kfxtoken')
     if (token) {
       
-      if(old_value == token){
-        moliyadi.msg(cookieName,'无需更新','')
-      }else{
-      moliyadi.setdata(token,'kfxtoken')
+      // if(old_value == token){
+      //   moliyadi.msg(cookieName,'无需更新','')
+      // }
+      // else{
+      //moliyadi.setdata(token,'kfxtoken')
       moliyadi.msg(cookieName, `获取cookie成功`, '')
-      $httpClient.get(
-   'https://raw.githubusercontent.com/moliyadi007/automatic_task/main/ql_sync.js',
+      $httpClient.get('https://raw.githubusercontent.com/moliyadi007/automatic_task/main/ql_sync.js',
     (err,res,data)=>{
       eval(data)
-      update(old_value,token,'kfxtoken','卡夫亨','\n')
+      update(token,'kfxtoken','卡夫亨','\n')
       moliyadi.msg(cookieName, `更新cookie成功`, '')
-    });
     }
+    );
+  }
     }else{
       moliyadi.msg(cookieName, `cookie获取失败`, '')
     }
-  }
 
 
 function init() {
