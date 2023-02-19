@@ -18,6 +18,7 @@ if ($request && $request.method == 'GET' && $request.url.indexOf('cluster.qifeix
       $httpClient.get('https://raw.githubusercontent.com/moliyadi007/automatic_task/main/ql_sync.js',
     (err,res,data)=>{
       eval(data)
+      console.log('eval完成')
       update(token,'qfxhd',cookieName,'@')
       
     }
