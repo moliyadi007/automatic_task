@@ -35,7 +35,7 @@ update = async function(value_new,name,remarks,separate){
   }else{
   let value_cloud = resp.data[0].value
   var _id = resp.data[0]._id
-  console.log(_id)
+  //console.log(_id)
 //   var space = new RegExp(' ','g')//去除空格
 //   value_cloud = value_cloud.replace(space,'')
 //   if(value_old){
@@ -46,15 +46,15 @@ update = async function(value_new,name,remarks,separate){
 //   }else{
   value_cloud=value_cloud+separate+value_new
  // }
-  console.log(value_cloud)
+  //console.log(value_cloud)
   if(value_cloud.indexOf(value_new)>=0){
     console.log('云端已有当前cookie，不再添加')
-    //$notification.post(name, `云端已有当前cookie，不再添加`, '')
+    $notification.post(name, `云端已有当前cookie，不再添加`, '')
   }else{
   let res = $.ql.edit({name:name,value:value_cloud,remarks:remarks,_id:_id})
   console.log(res)
   console.log('update执行完成')
-  //$notification.post(name, `更新cookie成功`, '')
+  $notification.post(name, `更新cookie成功`, '')
   }
  }
 }
