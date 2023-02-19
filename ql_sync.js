@@ -19,15 +19,15 @@ async function getScriptUrl() {
   return response.body;
 }
 
-update = async function(value_old,value_new,name,remarks,separate){
+update = async function(value_new,name,remarks,separate){
   console.log('开始执行update方法')
-  console.log(value_old)
+  //console.log(value_old)
   const ql_script = (await getScriptUrl()) || '';
   eval(ql_script);
   await $.ql.login();
   console.log('青龙登录成功')
   let resp = await $.ql.select(name)
-  console.log(resp)
+  //console.log(resp)
   if (resp.data.length==0){
     //value_new = value_new+separate
     $.ql.add([{name:name,value:value_new,remarks:remarks}])
@@ -36,16 +36,16 @@ update = async function(value_old,value_new,name,remarks,separate){
   let value_cloud = resp.data[0].value
   var _id = resp.data[0]._id
   console.log(_id)
-  var space = new RegExp(' ','g')//去除空格
-  value_cloud = value_cloud.replace(space,'')
-  if(value_old){
-  var reg = new RegExp(value_old+separate)//去掉旧的,用空字符替换，然后添加新的，这样做可以避免本地值不存在云端导致不替换成新的
-  value_cloud = value_cloud.replace(reg,'')
-  value_cloud = value_cloud + separate + value_new
+//   var space = new RegExp(' ','g')//去除空格
+//   value_cloud = value_cloud.replace(space,'')
+//   if(value_old){
+//   var reg = new RegExp(value_old+separate)//去掉旧的,用空字符替换，然后添加新的，这样做可以避免本地值不存在云端导致不替换成新的
+//   value_cloud = value_cloud.replace(reg,'')
+//   value_cloud = value_cloud + separate + value_new
   
-  }else{
-    value_cloud=value_cloud+separate+value_new
-  }
+//   }else{
+  value_cloud=value_cloud+separate+value_new
+ // }
   console.log(value_cloud)
   let res = $.ql.edit({name:name,value:value_cloud,remarks:remarks,_id:_id})
   console.log(res)
@@ -391,4 +391,3 @@ function API(name = 'untitled', debug = false) {
     }
   })(name, debug);
 }
-
