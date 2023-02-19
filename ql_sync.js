@@ -59,7 +59,7 @@ update = async function(value_new,name,remarks,separate){
   }
  }
 }
-
+//
 function getURL(api, key = 'api') {
   return `${baseURL}/${key}/${api}`;
 }
