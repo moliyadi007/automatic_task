@@ -44,13 +44,14 @@ update = async function(value_new,name,remarks,separate){
 //   value_cloud = value_cloud + separate + value_new
   
 //   }else{
-  value_cloud=value_cloud+separate+value_new
+  
  // }
   //console.log(value_cloud)
   if(value_cloud.indexOf(value_new)>=0){
     console.log('云端已有当前cookie，不再添加')
     $.notify(name, `云端已有当前cookie，不再添加`, '')
   }else{
+  value_cloud=value_cloud+separate+value_new
   let res = $.ql.edit({name:name,value:value_cloud,remarks:remarks,_id:_id})
   console.log(res)
   console.log('update执行完成')
