@@ -4,7 +4,7 @@ const cookieName = '广汽传祺app'
 
 const moliyadi = init()
 
-if ($request && $request.method == 'GET' && $request.url.indexOf('gsp.gacmotor.com/gateway/webapi/account/getUserInfoV2') >= 0) {
+if ($request && $request.method == 'POST' && $request.url.indexOf('gsp.gacmotor.com/gateway/webapi/account/getUserInfoV2') >= 0) {
     let token = $request.headers['token']
     //let old_value = moliyadi.getdata('kfxtoken')
     if (token) {
