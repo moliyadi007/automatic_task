@@ -6,7 +6,9 @@ const pattern = 'api.wincheers.net/api/services/app/crmAccount/GetIsLogin'
 const moliyadi = init()
 
 if ($request && $request.method == method && $request.url.indexOf(pattern) >= 0) {
-    let token = $request.headers.token
+    let Authorization = $request.headers.Authorization
+    let reg1 = new RegExp('Bearer ','g')
+    let token = Authorization.replace(reg1,'')
     //let old_value = moliyadi.getdata('kfxtoken')
     if (token) {
       
