@@ -6,6 +6,8 @@ const pattern = 'gms.ihaoqu.com/gmswx/app.php'
 const moliyadi = init()
 
 if ($request && $request.method == method && $request.url.indexOf(pattern) >= 0) {
+     console.log($request.header+'\n\n\n\n')
+     console.log($request.body)
      let uid = $request.body.uid
      var token = $request.body.token
      token = uid+'&'+token
