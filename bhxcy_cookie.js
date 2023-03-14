@@ -6,8 +6,9 @@ const pattern = 'apiAction=getUserInfo'
 const moliyadi = init()
 
 if ($request && $request.method == method && $request.url.indexOf(pattern) >= 0) {
-    var uid = body.match(/uid=(.*?)&/)[1]
-    var token = body.match(/token=(.*?)&/)[1]
+    //$.request.body的类型是字符串！！！！！！不是object
+    var uid = $.request.body.match(/uid=(.*?)&/)[1]
+    var token = $.request.body.match(/token=(.*?)&/)[1]
     token = uid+'&'+token
     // let reg1 = new RegExp('Bearer ','g')
     // let token = Authorization.replace(reg1,'')
