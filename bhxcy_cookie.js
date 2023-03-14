@@ -6,11 +6,9 @@ const pattern = 'apiAction=getUserInfo'
 const moliyadi = init()
 
 if ($request && $request.method == method && $request.url.indexOf(pattern) >= 0) {
-     console.log($request.body)
-     console.log(typeof($request.body))
-     var uid = $request.body.uid
-     var token = $request.body.token
-     token = uid+'&'+token
+    var uid = body.match(/uid=(.*?)&/)[1]
+    var token = body.match(/token=(.*?)&/)[1]
+    token = uid+'&'+token
     // let reg1 = new RegExp('Bearer ','g')
     // let token = Authorization.replace(reg1,'')
     //let old_value = moliyadi.getdata('kfxtoken')
