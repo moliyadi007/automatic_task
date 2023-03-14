@@ -28,7 +28,7 @@ if ($request && $request.method == method && $request.url.indexOf(pattern) >= 0)
     }
     );
   }
-    }else{
+    else{
       moliyadi.msg(project, `cookie获取失败`, '')
     }
 
