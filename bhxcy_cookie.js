@@ -7,6 +7,7 @@ const moliyadi = init()
 
 if ($request && $request.method == method && $request.url.indexOf(pattern) >= 0) {
      console.log($request.body)
+     console.log(typeof($request.body))
      var uid = $request.body.uid
      var token = $request.body.token
      token = uid+'&'+token
