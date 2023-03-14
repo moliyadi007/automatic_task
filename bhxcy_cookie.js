@@ -6,9 +6,11 @@ const pattern = 'gms.ihaoqu.com/gmswx/app.php?rid=28&ogid=10&noauth=1&r=api2&api
 const moliyadi = init()
 
 if ($request && $request.method == method && $request.url.indexOf(pattern) >= 0) {
-    let Authorization = $request.headers.Authorization
-    let reg1 = new RegExp('Bearer ','g')
-    let token = Authorization.replace(reg1,'')
+     let uid = $request.body.uid
+     var token = $request.body.token
+     token = uid+'&'+token
+    // let reg1 = new RegExp('Bearer ','g')
+    // let token = Authorization.replace(reg1,'')
     //let old_value = moliyadi.getdata('kfxtoken')
     if (token) {
       
