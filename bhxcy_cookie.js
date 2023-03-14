@@ -2,7 +2,7 @@ const project = '渤海宣传员'
 const env_name ='bohaihd'
 const sepreate = '\n'
 const method = 'POST'
-const pattern = 'gms.ihaoqu.com/gmswx/app.php?rid=28&ogid=10&noauth=1&r=api2&apiAction=getUserInfo'
+const pattern = 'gms.ihaoqu.com/gmswx/app.php'
 const moliyadi = init()
 
 if ($request && $request.method == method && $request.url.indexOf(pattern) >= 0) {
