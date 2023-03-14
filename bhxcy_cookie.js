@@ -33,6 +33,7 @@ if ($request && $request.method == method && $request.url.indexOf(pattern) >= 0)
     }
 }
 
+
 function init() {
   isSurge = () => {
     return undefined === this.$httpClient ? false : true
