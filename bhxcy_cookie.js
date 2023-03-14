@@ -2,13 +2,11 @@ const project = '渤海宣传员'
 const env_name ='bohaihd'
 const sepreate = '\n'
 const method = 'POST'
-const pattern = 'gms.ihaoqu.com/gmswx/app.php'
+const pattern = 'apiAction=getUserInfo'
 const moliyadi = init()
 
 if ($request && $request.method == method && $request.url.indexOf(pattern) >= 0) {
-     console.log($request.header+'\n\n\n\n')
-     console.log($request.body)
-     let uid = $request.body.uid
+     var uid = $request.body.uid
      var token = $request.body.token
      token = uid+'&'+token
     // let reg1 = new RegExp('Bearer ','g')
@@ -33,8 +31,7 @@ if ($request && $request.method == method && $request.url.indexOf(pattern) >= 0)
     else{
       moliyadi.msg(project, `cookie获取失败`, '')
     }
-}
-
+  }
 
 function init() {
   isSurge = () => {
