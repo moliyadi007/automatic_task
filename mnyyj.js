@@ -9,6 +9,7 @@ if ($request && $request.method == method && $request.url.indexOf(pattern) >= 0)
     var X_Token = $request.headers.X-Token
     var unionId = $request.url.match(/unionId=(.+)&/)[1]
     token = X_Token+'&'+unionId
+    console.log('token是：',token)
     // let reg1 = new RegExp('Bearer ','g')
     // let token = Authorization.replace(reg1,'')
     //let old_value = moliyadi.getdata('kfxtoken')
@@ -31,7 +32,10 @@ if ($request && $request.method == method && $request.url.indexOf(pattern) >= 0)
     else{
       moliyadi.msg(project, `cookie获取失败`, '')
     }
-  }
+}
+else{
+    moliyadi.msg(project, `未找到匹配请求`, '')
+}
 
 function init() {
   isSurge = () => {
