@@ -7,13 +7,14 @@ const moliyadi = init()
 
 if ($request && $request.method == method && $request.url.indexOf(pattern) >= 0) {
     var X_Token = $request.headers['X-Token']
+    console.log($request.url)
     var unionId = $request.url.match(/unionId=(.+)&/)[1]
     token = X_Token+'&'+unionId
     console.log('token是：',token)
     // let reg1 = new RegExp('Bearer ','g')
     // let token = Authorization.replace(reg1,'')
     //let old_value = moliyadi.getdata('kfxtoken')
-    if (token) {
+    if (X_Token && unionId) {
       
       // if(old_value == token){
       //   moliyadi.msg(project,'无需更新','')
