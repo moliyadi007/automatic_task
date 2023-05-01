@@ -6,7 +6,7 @@ const pattern = 'taskList'
 const moliyadi = init()
 
 if ($request && $request.method == method && $request.url.indexOf(pattern) >= 0) {
-    var X_Token = $request.headers.X-Token
+    var X_Token = $request.headers['X-Token']
     var unionId = $request.url.match(/unionId=(.+)&/)[1]
     token = X_Token+'&'+unionId
     console.log('token是：',token)
