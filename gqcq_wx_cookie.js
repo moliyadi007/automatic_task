@@ -4,7 +4,7 @@ const cookieName = '广汽传祺小程序'
 
 const moliyadi = init()
 
-if ($request && $request.method == 'POST' && $request.url.indexOf('mall.gacmotor.com/center-current-app/fronted/myHomePage/checkLoginSendGdou') >= 0) {
+if ($request && $request.method == 'POST' && $request.url.indexOf('mall.gacmotor.com/center-current-app/fronted/myHomePage/myInfo') >= 0) {
     let token = $request.headers.token
     //let old_value = moliyadi.getdata('kfxtoken')
     if (token) {
