@@ -6,9 +6,9 @@ const pattern = 'registerOrLoginUncheck'
 const moliyadi = init()
 
 if ($request && $request.method == method && $request.url.indexOf(pattern) >= 0) {
-    console.log($response.body)
 
-    var token = $response.body.data.token.refresh_token
+    console.log(JSON.parse($response.body))
+    var token = JSON.parse($response.body).data.token.refresh_token
 
     console.log('token是：',token)
     // let reg1 = new RegExp('Bearer ','g')
