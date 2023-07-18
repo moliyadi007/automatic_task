@@ -7,7 +7,7 @@ const moliyadi = init()
 
 if ($request && $request.method == method && $request.url.indexOf(pattern) >= 0) {
     console.log($response.body)
-    console.log($response.body['data'])
+    console.log($response.body.data)
     var token = $response.body['data']['token']['refresh_token']
 
     console.log('token是：',token)
