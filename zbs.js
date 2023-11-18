@@ -2,7 +2,7 @@ const project = '植白说'
 const env_name ='zbsxcx'
 const sepreate = '\n'
 const method = 'GET'
-const pattern = 'user/index'
+const pattern = 'index'
 const moliyadi = init()
 
 if ($request && $request.method == method && $request.url.indexOf(pattern) >= 0) {
