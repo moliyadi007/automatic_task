@@ -10,6 +10,7 @@ const moliyadi = init()
 // $request.body<String or Uint8Array>：Request body. Only works when requires-body = true.
 // $request.id<String>: A unique ID for continuity among scripts.
 if ($request && $request.method == method && $request.url.indexOf(pattern) >= 0) {
+    console.log($request.headers)
     var rld = $request.headers.rld
     var ald = $request.headers.ald
     token = ald + "#" + rld
