@@ -10,10 +10,9 @@ const moliyadi = init()
 // $request.body<String or Uint8Array>：Request body. Only works when requires-body = true.
 // $request.id<String>: A unique ID for continuity among scripts.
 if ($request && $request.method == method && $request.url.indexOf(pattern) >= 0) {
-    console.log($request.headers)
-    var rld = $request.headers.rld
-    var ald = $request.headers.ald
-    token = ald + "#" + rld
+    var rId = $request.headers.rId
+    var aId = $request.headers.aId
+    token = aId + "#" + rId
     // let reg1 = new RegExp('Bearer ','g')
     // let token = Authorization.replace(reg1,'')
     //let old_value = moliyadi.getdata('kfxtoken')
