@@ -10,7 +10,7 @@ const moliyadi = init()
 // $request.body<String or Uint8Array>：Request body. Only works when requires-body = true.
 // $request.id<String>: A unique ID for continuity among scripts.
 if ($request && $request.method == method && $request.url.indexOf(pattern) >= 0) {
-    var refresh_token = $response.body.refresh_token
+    var refresh_token = $response.body
     console.log("调试日志",refresh_token)
     if (token) {
       
