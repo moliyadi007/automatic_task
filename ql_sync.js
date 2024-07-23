@@ -52,7 +52,7 @@ update = async function(value_new,name,remarks,separate){
     $.notify(remarks, `云端已有当前cookie，不再添加`, '')
   }else{
   value_cloud=value_cloud+separate+value_new
-  let res = $.ql.edit({name:name,value:value_cloud,remarks:remarks,_id:_id})
+  let res = $.ql.edit({name:name,value:value_cloud,remarks:remarks,id:_id})
   console.log(res)
   console.log('update执行完成')
   $.notify(remarks, `更新cookie成功`, '')
