@@ -34,7 +34,7 @@ update = async function(value_new,name,remarks,separate){
     return
   }else{
   let value_cloud = resp.data[0].value
-  var _id = resp.data[0]._id
+  var _id = resp.data[0].id
   //console.log(_id)
 //   var space = new RegExp(' ','g')//去除空格
 //   value_cloud = value_cloud.replace(space,'')
