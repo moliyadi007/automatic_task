@@ -1,7 +1,7 @@
 const project = '荷叶健康小程序'
 const env_name ='heyeHealth'
 const sepreate = '\n'
-const method = 'POST'
+const method = 'GET'
 const pattern = 'system/appConfig'
 const moliyadi = init()
 //$request.url<String>: Request URL.
