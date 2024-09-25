@@ -2,7 +2,7 @@ const project = '荷叶健康小程序'
 const env_name ='heyeHealth'
 const sepreate = '\n'
 const method = 'POST'
-const pattern = 'auth/loginByWeChat'
+const pattern = '/system/appConfig'
 const moliyadi = init()
 //$request.url<String>: Request URL.
 // $request.method<String>：Request HTTP method.
@@ -10,7 +10,7 @@ const moliyadi = init()
 // $request.body<String or Uint8Array>：Request body. Only works when requires-body = true.
 // $request.id<String>: A unique ID for continuity among scripts.
 if ($request && $request.method == method && $request.url.indexOf(pattern) >= 0) {
-    var token = $response.body.result.token
+    var token = $request.headers.token
     console.log("调试日志",token)
     if (token) {
       
