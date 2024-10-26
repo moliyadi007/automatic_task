@@ -2,7 +2,7 @@ const project = '荷叶健康小程序'
 const env_name ='heyeHealth'
 const sepreate = '\n'
 const method = 'GET'
-const pattern = 'system/appConfig'
+const pattern = 'fruitManor/getMyManorInfo'
 const moliyadi = init()
 //$request.url<String>: Request URL.
 // $request.method<String>：Request HTTP method.
